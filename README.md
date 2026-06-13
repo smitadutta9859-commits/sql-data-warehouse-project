@@ -23,4 +23,4 @@ These insights empower stakeholders with key business metrics, enabling strategi
 This project is licensed under the MIT License. You are free to use, modify, and share this project with proper attribution.
 
   ## About me
-Hi there Hi, I'm Smita, with experience in Finance and Logistics. Aspiring Data Engineer passionate about data, innovation, and making a positive impact.
+Hi there, I'm Smita, with experience in Finance and Logistics. Aspiring Data Engineer passionate about data, innovation, and making a positive impact.
