@@ -9,26 +9,58 @@ Warning:
   Running this script will drop the entire 'DataWarehouse' Database if it exist. All data in the database will be permanently deleted' 
   Proceed with caution and ensure you have proper backups before running this script .*/
 
-use master;
+USE master;
 GO
 
--- Drop & Recreate the 'DataWarehouse' database
-If exists ( select 1 from sys.databases where name ='Datawarehouse')
-Begin 
-      Alter Database DataWareHouse Set single_user with rollback immediate;
-      Drop Database DataWareHouse;
-End;
-Go 
--- create a database warehouse
-create database DataWareHouse;
+/*==================================================
+  DROP & RECREATE DATABASE
+==================================================*/
+
+IF EXISTS (
+    SELECT 1
+    FROM sys.databases
+    WHERE name = 'DataWarehouse'
+)
+BEGIN
+    ALTER DATABASE DataWarehouse
+    SET SINGLE_USER
+    WITH ROLLBACK IMMEDIATE;
+
+    DROP DATABASE DataWarehouse;
+END;
 GO
 
-Use DataWareHouse;
+CREATE DATABASE DataWarehouse;
 GO
--- Create Schemas
-create schema bronze;
+
+USE DataWarehouse;
 GO
-create schema Silver;
+
+/*==================================================
+  DROP SCHEMAS IF THEY EXIST
+==================================================*/
+
+IF EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'bronze')
+    DROP SCHEMA bronze;
 GO
-create schema Gold;
-Go
+
+IF EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'silver')
+    DROP SCHEMA silver;
+GO
+
+IF EXISTS (SELECT 1 FROM sys.schemas WHERE name = 'gold')
+    DROP SCHEMA gold;
+GO
+
+/*==================================================
+  CREATE SCHEMAS
+==================================================*/
+
+CREATE SCHEMA bronze;
+GO
+
+CREATE SCHEMA silver;
+GO
+
+CREATE SCHEMA gold;
+GO
