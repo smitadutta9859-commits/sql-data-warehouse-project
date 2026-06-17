@@ -152,6 +152,6 @@ BEGIN
 END;
 GO
 
- */ TRY .....CATCH -- SQL runs the TRY block, and if it fails, it runs the CATCH block to handle the error/*
+ /* TRY .....CATCH -- SQL runs the TRY block, and if it fails, it runs the CATCH block to handle the error*/
 
 
