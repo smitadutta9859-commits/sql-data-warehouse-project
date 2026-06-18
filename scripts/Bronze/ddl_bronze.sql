@@ -64,7 +64,7 @@ GO
 CREATE TABLE bronze.erp_cust_az12 (
     cid NVARCHAR(50),
     bdate DATE,
-    ge NVARCHAR(50)
+    gender NVARCHAR(50)
 );
 GO
 
